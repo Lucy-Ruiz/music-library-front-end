@@ -2,10 +2,13 @@ import React, { useEffect, useState } from 'react';
 import './App.css';
 import axios from 'axios';
 import MusicTable from './Components/MusicTable/MusicTable';
+import SearchBar from './Components/SearchBar/SearchBar';
+
 
 function App() {
 
     const[songs, setSongs] = useState([]);
+    
     
     useEffect(() => {
         getAllSongs();
@@ -20,6 +23,9 @@ function App() {
   return (
     <div>
       <h3>Music Library</h3>
+      <div>
+        <SearchBar/>
+      </div>
       <div>
         <MusicTable allSongs={songs}/>
       </div>
