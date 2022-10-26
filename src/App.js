@@ -3,7 +3,7 @@ import './App.css';
 import axios from 'axios';
 import MusicTable from './Components/MusicTable/MusicTable';
 import SearchBar from './Components/SearchBar/SearchBar';
-
+import Header from './Components/NavBar/NavBar';
 
 function App() {
 
@@ -21,7 +21,7 @@ function App() {
         }
         else {
             let results = response.data.filter((song) => {
-                if(song.id.includes(search) || song.title.includes(search) || song.artist.includes(search) || song.album.includes(search) || song.release_date.includes(search) || song.genre.date.includes(search)){
+                if (song.title.includes(search) || song.artist.includes(search) || song.album.includes(search) || song.release_date.includes(search) || song.genre.includes(search)){
                     return true;
                     }
                 else{
@@ -35,13 +35,15 @@ function App() {
 
   return (
     <div>
-      <h3>Music Library</h3>
-      <div>
-        <SearchBar filteredSongs={setSearch}/>
-      </div>
-      <div>
-        <MusicTable allSongs={songs}/>
-      </div>
+        <div>
+        <Header/>
+        </div>
+        <div>
+            <SearchBar setFilter={setSearch} filter={search} reDrawSongs={getAllSongs}/>
+        </div>
+        <div>
+            <MusicTable allSongs={songs}/>
+        </div>
       
     </div>
   );
