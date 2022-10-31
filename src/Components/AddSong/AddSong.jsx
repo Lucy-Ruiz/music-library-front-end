@@ -29,15 +29,15 @@ const AddSong = (props) => {
     return(
         <form onSubmit={handleSubmit}>
             <label>Title</label>
-            <input type='text' value={title} onChange={(event) => setTitle(event.target.value)}/>
+            <input data-cy='titleTest' type='text' value={title} onChange={(event) => setTitle(event.target.value)}/>
             <label>Artist</label>
-            <input type='text' value={artist} onChange={(event) => setArtist(event.target.value)}/>
+            <input data-cy='artistTest' type='text' value={artist} onChange={(event) => setArtist(event.target.value)}/>
             <label>Album</label>
-            <input type='text' value={album} onChange={(event) => setAlbum(event.target.value)}/>
+            <input data-cy='albumTest' type='text' value={album} onChange={(event) => setAlbum(event.target.value)}/>
             <label>Release Date</label>
-            <input type='text' value={releaseDate} onChange={(event) => setReleaseDate(event.target.value)}/>
+            <input data-cy='2022-01-01' type='text' value={releaseDate} onChange={(event) => setReleaseDate(event.target.value)}/>
             <label>Genre</label>
-            <input type='text' value={genre} onChange={(event) => setGenre(event.target.value)}/>
+            <input data-cy='genreTest' type='text' value={genre} onChange={(event) => setGenre(event.target.value)}/>
             <button type='submit'>Add</button>
         </form>
     );

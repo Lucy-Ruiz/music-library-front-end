@@ -5,6 +5,7 @@ import MusicTable from './Components/MusicTable/MusicTable';
 import SearchBar from './Components/SearchBar/SearchBar';
 import Header from './Components/NavBar/NavBar';
 import AddSong from './Components/AddSong/AddSong';
+import DeleteSong from './Components/DeleteSong/DeleteSong';
 
 function App() {
 
@@ -46,7 +47,7 @@ function App() {
             <AddSong displaySongs={getAllSongs}/>
         </div>
         <div>
-            <MusicTable allSongs={songs}/>
+            <MusicTable allSongs={songs} displaySongs={getAllSongs}/>
         </div>
       
     </div>
