@@ -10,7 +10,7 @@ const SearchBar = (props) => {
     return(
         <form onSubmit={handleSubmit}>
             <label>Filter by:</label>
-            <input type='text' value={props.filter} onChange={(event) => props.setFilter(event.target.value)}></input>
+            <input data-cy='filterTest' type='text' value={props.filter} onChange={(event) => props.setFilter(event.target.value)}></input>
             <button type='submit'>Search</button>
         </form>
     );

@@ -1,6 +1,6 @@
 describe('all music library tests', () => {
     describe('tests for add function', () => {
-        it('Add a song', () => {
+        it('Add a song and it will show up in the table', () => {
             cy.visit('http://localhost:3000/')  
             cy.get('[data-cy="titleTest"]').type('The Song')
             cy.get('[data-cy="artistTest"]').type('The Artist')
@@ -13,16 +13,19 @@ describe('all music library tests', () => {
         })
     })
     describe('filter tests', () => {
-        it('Type Die and verify only that song is selected', () => {
+        it('Type "The Song" and verify only that song is selected', () => {
             cy.visit('http://localhost:3000/')
-            cy.get(':nth-child(2) > form > input').type('Die')
+            cy.get('[data-cy="filterTest"]').type('The Song')
             cy.get(':nth-child(2) > form > button').click()
+            cy.get('tbody > :nth-child(1) > :nth-child(2)').should('have.text', 'The Song')
+            cy.get('tbody > :nth-child(2) > :nth-child(2)').should('not.exist')
         })
     })
     describe('delete song test', () =>{
-        it('Delete a song', () => {
+        it('Delete a song and verify it does not display anymore', () => {
             cy.visit('http://localhost:3000/')
             cy.get(':nth-child(6) > :nth-child(7) > form > button').click()
+            cy.get(':nth-child(6) > :nth-child(2)').should('not.exist')
         })
     })
 
